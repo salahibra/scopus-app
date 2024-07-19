@@ -2,7 +2,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 from wordcloud import WordCloud
-import nltk
 from nltk import PorterStemmer
 
 stpwrds = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself',
