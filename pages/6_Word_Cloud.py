@@ -3,9 +3,11 @@ import pandas as pd
 from wordcloud import WordCloud
 import nltk
 from nltk import PorterStemmer
+import csv
 
-
-with f
+with open('../stopwords.csv','r') as file:
+    reader = csv.reader(file)
+    stpwrds = [row[0] for row in reader]
 st.title('Word Cloud')
 
 @st.cache_data
@@ -16,9 +18,7 @@ def load_dataset():
 df = load_dataset()   
 
 ps = PorterStemmer()
-stpwrds = set(stopwords.words('english'))
-stpwrds.extend(set(stopwords.words('french')))
-stpwrds.extend(['à propos', 'using', 'propos', 'd\'', 'non', 'based'])
+
 tab1, tab2, tab3 = st.tabs(['Word Cloud for Titles', 'Word Cloud for Author Keywords', 'Word Cloud for Index Keywords'])
 years = df['Year'].unique()
 with tab1:
