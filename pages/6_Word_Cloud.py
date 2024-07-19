@@ -1,10 +1,10 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 import pandas as pd
 from wordcloud import WordCloud
 import nltk
 from nltk import PorterStemmer
 import csv
-import matplotlib.pyplot as plt
 
 with open('stopwords.csv','r') as file:
     reader = csv.reader(file)
