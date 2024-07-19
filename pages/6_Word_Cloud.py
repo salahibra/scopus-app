@@ -4,7 +4,6 @@ import pandas as pd
 from wordcloud import WordCloud
 import nltk
 from nltk import PorterStemmer
-import numpy as np
 
 stpwrds = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself',
            'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their',
