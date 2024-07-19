@@ -45,7 +45,7 @@ def generate_word_cloud(data, year, column, title):
             if word not in stpwrds:
                 text += ' ' + ps.stem(word)
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-    fig = plt.figure(figsize=(10, 5))
+    fig = plt.figure()
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     plt.title(title)
