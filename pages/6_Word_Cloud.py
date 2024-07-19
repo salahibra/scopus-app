@@ -2,12 +2,10 @@ import streamlit as st
 import pandas as pd
 from wordcloud import WordCloud
 import nltk
-from nltk.corpus import stopwords
 from nltk import PorterStemmer
 
-nltk.download('stopwords')
 
-
+with f
 st.title('Word Cloud')
 
 @st.cache_data
