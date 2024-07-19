@@ -5,7 +5,7 @@ import nltk
 from nltk import PorterStemmer
 import csv
 
-with open('../stopwords.csv','r') as file:
+with open('stopwords.csv','r') as file:
     reader = csv.reader(file)
     stpwrds = [row[0] for row in reader]
 st.title('Word Cloud')
