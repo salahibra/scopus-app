@@ -47,14 +47,13 @@ with tab1:
                 if word not in stpwrds:
                     text += ' '+ ps.stem(word)
         wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-        figure1  = plt.figure(figsize=(50, 30))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis('off')
-        plt.title(f'WordCloud for Title in {year}')
+        figure1, ax1  = plt.subplot()
+        ax1.imshow(wordcloud, interpolation='bilinear')
+        ax1.set_title(f'WordCloud for Title in {year}')
         return figure1
     with st.spinner('wait...'):
         figure1 = word_cloud1(df, year1)
-        st.plotly_chart(figure1)
+        st.pyplot(figure1)
 
 with tab2:
     year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
