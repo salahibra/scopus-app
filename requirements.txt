@@ -1,0 +1,2 @@
+stremlit==1.36.0
+plotly==5.22.0
