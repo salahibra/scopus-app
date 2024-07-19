@@ -47,7 +47,7 @@ with tab1:
                 if word not in stpwrds:
                     text += ' '+ ps.stem(word)
         wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-        figure1, ax1  = plt.subplot()
+        figure1, ax1  = plt.subplots()
         ax1.imshow(wordcloud, interpolation='bilinear')
         ax1.set_title(f'WordCloud for Title in {year}')
         return figure1
