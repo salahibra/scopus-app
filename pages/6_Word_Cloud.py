@@ -48,14 +48,13 @@ def generate_word_cloud(data, year, column, title):
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.title(title)
-    return fig
+    st.pyplot(fig)
 
 with tab1:
     year1 = st.selectbox('select the year to chow the most used word in the Titles', options=years, key=1)
     with st.spinner('wait...'):
-        figure1 = generate_word_cloud(df, year1, 'Title', f'WordCloud for Titles in {year1}')
-        st.pyplot(figure1)
-
+        generate_word_cloud(df, year1, 'Title', f'WordCloud for Titles in {year1}')
+               
 with tab2:
     year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
     with st.spinner('wait...'):
