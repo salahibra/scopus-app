@@ -54,7 +54,7 @@ with tab1:
         return figure1
     with st.spinner('wait...'):
         figure1 = word_cloud1(df, year1)
-        st.pyplot(figure1)
+        st.plotly_chart(figure1)
 
 with tab2:
     year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
