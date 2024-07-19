@@ -1,9 +1,9 @@
-from nltk.corpus import stopwords
 import streamlit as st
 import pandas as pd
 from wordcloud import WordCloud
-from nltk import PorterStemmer
 import nltk
+from nltk.corpus import stopwords
+from nltk import PorterStemmer
 
 nltk.download('stopwords')
 
