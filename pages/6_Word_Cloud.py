@@ -43,7 +43,7 @@ def generate_word_cloud(data, year, column, title):
         for word in content.lower().split(' ' if column == 'Title' else ';'):
             if word not in stpwrds:
                 text += ' ' + ps.stem(word)
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+    wordcloud = WordCloud(width=1000, height=500, background_color='white').generate(text)
     fig = plt.figure(figsize=(15,10))
     plt.imshow(wordcloud)
     plt.axis('off')
