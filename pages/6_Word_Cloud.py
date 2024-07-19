@@ -4,11 +4,11 @@ import pandas as pd
 from wordcloud import WordCloud
 import nltk
 from nltk import PorterStemmer
-import csv
+from nltk.corpus import stopwords
 
-with open('stopwords.csv','r') as file:
-    reader = csv.reader(file)
-    stpwrds = [row[0] for row in reader]
+stpwrds = stopwords.words('english')
+stpwrds.extend(stopwords.words('french'))
+stpwrds.extend(['à propos', 'using', 'propos', 'd\'', 'non', 'based'])
 st.title('Word Cloud')
 
 @st.cache_data
@@ -39,7 +39,7 @@ with tab1:
         return figure1
     with st.spinner('wait...'):
         figure1 = word_cloud1(df, year1)
-        # st.pyplot(figure1)
+        st.pyplot(figure1)
 
 with tab2:
     year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
@@ -58,7 +58,7 @@ with tab2:
         return figure2
     with st.spinner('wait...'):
         figure2 = word_cloud3(df, year2)
-        # st.pyplot(figure2)
+        st.pyplot(figure2)
 
 with tab3:
     year3 = st.selectbox('select the year to chow the most used word in the Index Keywords', options=years, key=3)
@@ -77,4 +77,4 @@ with tab3:
         return figure3
     with st.spinner('wait...'):
         figure3 = word_cloud3(df, year3)
-        # st.pyplot(figure3)
+        st.pyplot(figure3)
