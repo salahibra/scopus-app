@@ -4,6 +4,7 @@ import pandas as pd
 from wordcloud import WordCloud
 from nltk import PorterStemmer
 
+nltk.download('stopwords')
 st.title('Word Cloud')
 
 @st.cache_data
