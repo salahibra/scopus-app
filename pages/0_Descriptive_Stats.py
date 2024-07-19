@@ -13,7 +13,7 @@ st.title("Welcome to General Stats")
 
 
 nombre_lignes = st.slider('choisir nombre des lignes a afficher:', min_value=2, max_value=len(df))
-colonnes = st.multiselect('selectionner les colonnes a afficher:', options=df.columns.to_list(), default=df.columns,to_list())
+colonnes = st.multiselect('selectionner les colonnes a afficher:', options=df.columns.to_list(), default=df.columns.to_list())
 st.write(df[:nombre_lignes][colonnes])
 
 n1 = len(df)
