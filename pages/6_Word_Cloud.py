@@ -4,6 +4,9 @@ import pandas as pd
 from wordcloud import WordCloud
 from nltk import PorterStemmer
 
+nltk.download('stopwords')
+
+
 st.title('Word Cloud')
 
 @st.cache_data
@@ -14,8 +17,8 @@ def load_dataset():
 df = load_dataset()   
 
 ps = PorterStemmer()
-stpwrds = stopwords.words('english')
-stpwrds.extend(stopwords.words('french'))
+stpwrds = set(stopwords.words('english'))
+stpwrds.extend(set(stopwords.words('french')))
 stpwrds.extend(['à propos', 'using', 'propos', 'd\'', 'non', 'based'])
 tab1, tab2, tab3 = st.tabs(['Word Cloud for Titles', 'Word Cloud for Author Keywords', 'Word Cloud for Index Keywords'])
 years = df['Year'].unique()
