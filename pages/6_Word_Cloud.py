@@ -39,49 +39,33 @@ ps = PorterStemmer()
 tab1, tab2, tab3 = st.tabs(['Word Cloud for Titles', 'Word Cloud for Author Keywords', 'Word Cloud for Index Keywords'])
 years = df['Year'].unique()
 
-def word_cloud1(data, year):
-        titles = data[(data['Year'] == year) & (data['Title'].notna())]['Title']
-        text = ''
-        for title in titles:
-            for word in title.lower().split(' '):
-                if word not in stpwrds:
-                    text += ' '+ ps.stem(word)
-        wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-        figure1 = plt.figure(figsize=(10, 5))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis('off')
-        plt.title(f'WordCloud for Title in {year}')
-        return figure1
+def generate_word_cloud(data, year, column, title):
+    text = ''
+    for content in data[(data['Year'] == year) & (data[column].notna())][column]:
+        for word in content.lower().split(' ' if column == 'Title' else ';'):
+            if word not in stpwrds:
+                text += ' ' + ps.stem(word)
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+    fig = plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.title(title)
+    return fig
 
 with tab1:
     year1 = st.selectbox('select the year to chow the most used word in the Titles', options=years, key=1)
     with st.spinner('wait...'):
-        figure1 = word_cloud1(df, year1)
+        figure1 = generate_word_cloud(df, year1)
         st.pyplot(figure1)
-
-
-def word_cloud3(data, year):
-        titles = data[(data['Year'] == year) & (data['Author Keywords'].notna())]['Author Keywords']
-        text = ''
-        for title in titles:
-            for word in title.lower().split(';'):
-                if word not in stpwrds:
-                    text += ' '+ ps.stem(word)
-        wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-        figure = plt.figure(figsize=(10, 5))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis('off')
-        plt.title(f'WordCloud for Author Keywords in{year}')
-        return figure
 
 with tab2:
     year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
     with st.spinner('wait...'):
-        figure2 = word_cloud3(df, year2)
+        figure2 = generate_word_cloud(df, year2)
         st.pyplot(figure2)
 
 with tab3:
     year3 = st.selectbox('select the year to chow the most used word in the Index Keywords', options=years, key=3)
     with st.spinner('wait...'):
-        figure3 = word_cloud3(df, year3)
+        figure3 = generate_word_cloud(df, year3)
         st.pyplot(figure3)
