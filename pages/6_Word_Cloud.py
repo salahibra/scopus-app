@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 from wordcloud import WordCloud
 from nltk import PorterStemmer
+import nltk
 
 nltk.download('stopwords')
 
