@@ -42,7 +42,7 @@ with tab1:
         # st.pyplot(figure1)
 
 with tab2:
-    year3 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
+    year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
     def word_cloud3(data, year):
         titles = data[(data['Year'] == year) & (data['Author Keywords'].notna())]['Author Keywords']
         text = ''
@@ -57,8 +57,8 @@ with tab2:
         plt.title(f'WordCloud for Author Keywords in{year}')
         return figure2
     with st.spinner('wait...'):
-        figure3 = word_cloud3(df, year3)
-        st.pyplot(figure3)
+        figure2 = word_cloud3(df, year2)
+        # st.pyplot(figure2)
 
 with tab3:
     year3 = st.selectbox('select the year to chow the most used word in the Index Keywords', options=years, key=3)
@@ -70,11 +70,11 @@ with tab3:
                 if word not in stpwrds:
                     text += ' '+ ps.stem(word)
         wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-        figure2 = plt.figure(figsize=(10, 5))
+        figure3 = plt.figure(figsize=(10, 5))
         plt.imshow(wordcloud, interpolation='bilinear')
         plt.axis('off')
         plt.title(f'WordCloud for Index Keywords in{year}')
-        return figure2
+        return figure3
     with st.spinner('wait...'):
         figure3 = word_cloud3(df, year3)
-        st.pyplot(figure3)
+        # st.pyplot(figure3)
