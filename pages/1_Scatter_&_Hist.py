@@ -32,7 +32,10 @@ with tab2:
     fig_hist.update_layout(
         bargap=0.2,
         width=800,
-        height=600 
+        height=600,
+        xaxis=dict(
+        tickangle=45  # Rotation des labels de l'axe x à 45 degrés
+        )
     )
     fig_hist.update_xaxes(tickvals=df[feat])
     st.plotly_chart(fig_hist)
