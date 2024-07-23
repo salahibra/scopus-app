@@ -27,7 +27,7 @@ with tab1:
 
 with tab2:
     feat = st.selectbox('choisir la caracteristique:', colonnes)
-    fig_hist = px.histogram(df, x=feat, title='                distribution of '+feat)
+    fig_hist = px.histogram(df, x=feat, title='                                    distribution of '+feat)
     fig_hist.update_layout(bargap=0.2)
     fig_hist.update_xaxes(tickvals=df[feat])
     st.plotly_chart(fig_hist)
