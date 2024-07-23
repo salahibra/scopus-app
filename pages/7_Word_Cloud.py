@@ -49,18 +49,18 @@ def generate_word_cloud(data, year, column, title):
     
 
 with tab1:
-    year1 = st.selectbox('select the year to chow the most used word in the Titles', options=years, key=1)
+    year1 = st.selectbox('select the year to chow the most used words in the Titles', options=years, key=1)
     with st.spinner('wait...'):
         figure1 = generate_word_cloud(df, year1, 'Title', f'WordCloud for Titles in {year1}')
         st.image(figure1)   
 with tab2:
-    year2 = st.selectbox('select the year to chow the most used word in the Author Keywords', options=years, key=2)
+    year2 = st.selectbox('select the year to chow the most used words in the Author Keywords', options=years, key=2)
     with st.spinner('wait...'):
         figure2 = generate_word_cloud(df, year2,'Author Keywords', f'WordCloud for Author Keywords in {year2}')
         st.image(figure2)
 
 with tab3:
-    year3 = st.selectbox('select the year to chow the most used word in the Index Keywords', options=years, key=3)
+    year3 = st.selectbox('select the year to chow the most used words in the Index Keywords', options=years, key=3)
     with st.spinner('wait...'):
         figure3 = generate_word_cloud(df, year3,'Index Keywords', f'WordCloud for Index Keywords in {year3}')
         st.image(figure3)
