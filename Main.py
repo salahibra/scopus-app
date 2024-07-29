@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="ScopusApp",
-    page_icon="〽️🔅🔆☣️"
+    page_icon="〽️"
 )
 
 st.title("Welcome to ScopusApp")
